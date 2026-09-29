@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ryusei Tridents | Valorant Esports, Dhaka, Bangladesh</title>
+<meta name="description" content="Ryusei Tridents is a Bangladeshi Valorant esports organization with a competitive roster and a management team that runs university and school gaming tournaments.">
+<meta name="theme-color" content="#070a12">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ryusei Tridents">
+<meta property="og:title" content="Ryusei Tridents | Valorant Esports, Dhaka, Bangladesh">
+<meta property="og:description" content="Ryusei Tridents is a Bangladeshi Valorant esports organization with a competitive roster and a management team that runs university and school gaming tournaments.">
+<meta property="og:image" content="/assets/crest.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ryusei Tridents">
+<meta name="twitter:description" content="Ryusei Tridents is a Bangladeshi Valorant esports organization with a competitive roster and a management team that runs university and school gaming tournaments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070a12;
+    --bg-2:#0b1120;
+    --panel:#0f1729;
+    --panel-2:#131f38;
+    --line:#22314f;
+    --blue:#4a7fd6;
+    --blue-light:#8fb8ee;
+    --blue-deep:#274a89;
+    --ice:#dbe8fb;
+    --white:#f3f6fc;
+    --muted:#8595b3;
+    --muted-2:#5d6c8a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top: 78px; scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--white);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.disp{ font-family:'Rajdhani', sans-serif; font-weight:700; margin:0; letter-spacing:0.01em; }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+  .bg-field{
+    position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(1200px 700px at 18% -10%, rgba(74,127,214,0.14), transparent 60%),
+      radial-gradient(900px 600px at 100% 10%, rgba(74,127,214,0.09), transparent 55%),
+      var(--bg);
+  }
+
+  /* ---------- nav ---------- */
+  nav.topnav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    padding-top: env(safe-area-inset-top,0px);
+    background: rgba(7,10,18,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 32px;
+    max-width:1080px; margin:0 auto;
+  }
+  .navrow .brand{ display:flex; align-items:center; gap:10px; cursor:pointer; }
+  .navrow .brand img{ width:28px; height:28px; }
+  .navrow .brand span{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.05em; color:var(--ice); }
+  .navlinks{ display:flex; gap:6px; }
+  .navlinks a{
+    font-size:13.5px; font-weight:600; letter-spacing:0.04em;
+    color: var(--muted); text-decoration:none;
+    padding: 8px 14px; border-radius:2px;
+    transition: color .2s ease, background .2s ease;
+  }
+  .navlinks a:hover{ color:var(--ice); }
+  .navlinks a.active{ color:var(--white); background: var(--panel-2); }
+  @media (max-width:540px){
+    .navrow{ padding:12px 18px; }
+    .navlinks a{ padding:7px 10px; font-size:12.5px; }
+    .navrow .brand span{ display:none; }
+  }
+
+  /* ---------- pages ---------- */
+  .page{ display:none; }
+  .page.active{ display:block; animation: pagein .5s ease; }
+  @keyframes pagein{ from{ opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;} }
+
+  /* ---------- trident divider ---------- */
+  .divider{ display:flex; align-items:center; justify-content:center; gap:14px; width:100%; max-width:1080px; margin:0 auto; padding:0 32px; }
+  .divider .ln{ flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--line) 50%, transparent); }
+  .divider svg{ width:22px; height:22px; opacity:0.85; flex-shrink:0; }
+
+  /* ---------- hero ---------- */
+  header.hero{ position:relative; padding:56px 0 70px; border-bottom:1px solid var(--line); overflow:hidden; }
+  .hero-wing{ position:absolute; top:-120px; width:640px; height:640px; opacity:0.10; pointer-events:none; }
+  .hero-wing.left{ left:-220px; transform:scaleX(-1) rotate(8deg); }
+  .hero-wing.right{ right:-220px; top:40px; rotate:-8deg; }
+  .region-link{ font-size:13px; color:var(--muted); border:1px solid var(--line); padding:6px 12px; border-radius:2px; text-decoration:none; }
+  .region-link:hover{ color:var(--ice); border-color:var(--blue-deep); }
+  .hero-top{ display:flex; align-items:center; justify-content:flex-end; padding:0 0 40px; }
+  .hero-body{ display:grid; grid-template-columns:168px 1fr; gap:40px; align-items:center; }
+  .hero-crest img{ width:168px; height:168px; }
+  .hero-title{ font-size: clamp(38px, 6.2vw, 62px); line-height:0.98; color:var(--white); }
+  .hero-title .sub{ display:block; font-size:0.30em; font-weight:600; color:var(--blue-light); letter-spacing:0.16em; margin-bottom:10px; }
+  .hero-tagline{ margin-top:18px; max-width:540px; color:var(--muted); font-size:16.5px; line-height:1.6; }
+  .hero-stats{ display:flex; gap:36px; margin-top:32px; flex-wrap:wrap; }
+  .stat .num{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:30px; color:var(--white); line-height:1; }
+  .stat .num span{ color:var(--blue-light); }
+  .stat .lbl{ margin-top:6px; font-size:12px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.09em; }
+  @media (max-width:640px){
+    .hero-body{ grid-template-columns:1fr; text-align:center; }
+    .hero-crest{ justify-self:center; }
+    .hero-tagline{ margin-left:auto; margin-right:auto; }
+    .hero-stats{ justify-content:center; }
+    .hero-top{ justify-content:center; }
+  }
+
+  section{ padding:66px 0; }
+  .eyebrow-row{ display:flex; align-items:baseline; gap:16px; margin-bottom:14px; }
+  .sec-num{ font-family:'Rajdhani',sans-serif; font-weight:700; color:var(--blue-deep); font-size:15px; }
+  .sec-title{ font-size:30px; }
+  .sec-lede{ color:var(--muted); font-size:15.5px; max-width:600px; margin:16px 0 34px; line-height:1.6; }
+
+  /* ---------- about cards ---------- */
+  .ops-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:720px){ .ops-grid{ grid-template-columns:1fr; } }
+  .op-card{ background:linear-gradient(180deg, var(--panel), var(--bg-2)); border:1px solid var(--line); border-radius:3px; padding:30px 28px; position:relative; }
+  .op-card::before{ content:""; position:absolute; top:0; left:0; width:34px; height:2px; background:var(--blue); }
+  .op-card h3{ font-size:21px; color:var(--white); margin-bottom:12px; }
+  .op-card p{ color:var(--muted); font-size:14.5px; line-height:1.65; margin:0; }
+  .op-tag{ display:inline-block; font-size:11px; letter-spacing:0.08em; color:var(--blue-light); border:1px solid var(--blue-deep); padding:4px 10px; border-radius:2px; margin-bottom:16px; }
+
+  .rank-strip{ display:flex; align-items:center; gap:28px; background:var(--panel-2); border:1px solid var(--line); border-radius:3px; padding:26px 30px; margin-top:24px; }
+  .rank-strip .rn{ font-family:'Rajdhani',sans-serif; font-weight:700; font-size:44px; color:var(--blue-light); line-height:1; white-space:nowrap; }
+  .rank-strip .rn sup{ font-size:15px; margin-left:2px; color:var(--muted-2); }
+  .rank-strip .rd{ flex:1; color:var(--muted); font-size:14.5px; line-height:1.6; }
+  .rank-strip .rd b{ color:var(--white); font-weight:600; }
+  @media (max-width:560px){ .rank-strip{ flex-direction:column; align-items:flex-start; gap:12px; } }
+
+  /* ---------- leadership timeline (sequential reveal) ---------- */
+  .timeline{ position:relative; margin-top:10px; }
+  .timeline::before{
+    content:"";
+    position:absolute; left:50%; top:0; bottom:0; width:1px;
+    background: linear-gradient(180deg, transparent, var(--line) 6%, var(--line) 94%, transparent);
+    transform: translateX(-50%);
+  }
+  @media (max-width:760px){ .timeline::before{ left:26px; } }
+
+  .lrow{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1fr 64px 1fr;
+    align-items:center;
+    gap:0;
+    padding: 54px 0;
+    opacity:0; transform:translateY(44px);
+    transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .lrow.in{ opacity:1; transform:translateY(0); }
+  .lrow .node{
+    width:64px; height:64px; border-radius:50%;
+    background: var(--bg-2); border:2px solid var(--blue-deep);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden; z-index:2;
+    box-shadow: 0 0 0 6px var(--bg);
+  }
+  .lrow .node img{ width:100%; height:100%; object-fit:cover; }
+  .lcard{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    background: var(--panel); border:1px solid var(--line); border-radius:4px;
+    padding:20px; max-width:460px;
+  }
+  .lcard .photo{
+    width:150px; height:187px;
+    flex-shrink:0;
+    border-radius:3px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background: var(--bg-2);
+  }
+  .lcard .photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .lcard .info{ min-width:0; }
+  .lrow:nth-child(odd) .lcard{ justify-self:end; margin-right:34px; flex-direction:row-reverse; text-align:right; }
+  .lrow:nth-child(even) .lcard{ grid-column:3; justify-self:start; margin-left:34px; text-align:left; }
+  .lrow.lead .lcard{ border-color:var(--blue-deep); background:linear-gradient(120deg, rgba(74,127,214,0.14), var(--panel) 65%); }
+  .lrow.lead .lcard .photo{ width:172px; height:215px; }
+  .p-name{ font-size:19px; font-weight:600; color:var(--white); }
+  .p-alias{ color:var(--blue-light); font-size:13.5px; margin-top:3px; }
+  .p-role{ margin-top:11px; font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); }
+
+  @media (max-width:760px){
+    .lrow{ grid-template-columns: 44px 1fr; padding:32px 0; }
+    .lrow .node{ grid-column:1; width:44px; height:44px; }
+    .lrow:nth-child(odd) .lcard, .lrow:nth-child(even) .lcard{
+      grid-column:2; justify-self:start; text-align:left; margin-left:16px; margin-right:0; max-width:none;
+      flex-direction:row;
+    }
+  }
+  @media (max-width:480px){
+    .lcard{ flex-direction:column !important; align-items:flex-start; text-align:left !important; gap:16px; }
+    .lcard .photo{ width:100%; height:220px; }
+    .lrow.lead .lcard .photo{ width:100%; height:240px; }
+  }
+
+  /* ---------- events page ---------- */
+  .page-head{ padding: 46px 0 10px; border-bottom:1px solid var(--line); }
+  .page-head .sec-title{ font-size:36px; }
+  .page-head .sec-lede{ margin-bottom:6px; }
+
+  .events-list{ display:grid; grid-template-columns: repeat(2, 1fr); gap:18px; margin-top:10px; }
+  @media (max-width:760px){ .events-list{ grid-template-columns:1fr; } }
+  .event-card{
+    border:1px solid var(--line); background:var(--panel); border-radius:4px;
+    overflow:hidden;
+    opacity:0; transform:translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .event-card.in{ opacity:1; transform:none; }
+  .event-card.featured{ border-color:var(--blue-deep); }
+  .event-photo{
+    height:150px;
+    border-bottom:1px dashed var(--line);
+    background: repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 12px, transparent 12px 24px), var(--bg-2);
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;
+    color: var(--muted-2);
+  }
+  .event-photo svg{ width:26px; height:26px; opacity:0.55; }
+  .event-photo span{ font-size:11px; letter-spacing:0.05em; text-transform:uppercase; }
+  .event-body{ padding:18px 20px 20px; }
+  .event-body .en{ font-weight:600; font-size:15.5px; color:var(--ice); line-height:1.35; }
+  .event-body .ed{
+    display:inline-block; margin-top:10px;
+    font-size:11px; letter-spacing:0.06em; color:var(--blue-light);
+    border:1px solid var(--blue-deep); padding:4px 10px; border-radius:2px;
+  }
+  .event-body .ed.tba{ color:var(--muted-2); border-color:var(--line); }
+
+  /* ---------- contact page ---------- */
+  .contact-shell{ padding:70px 0 90px; text-align:center; }
+  .contact-shell .fmark img{ width:64px; height:64px; margin:0 auto 22px; }
+  .contact-shell h1{ font-size:38px; max-width:560px; margin:0 auto 14px; }
+  .contact-shell p{ color:var(--muted); font-size:15.5px; max-width:460px; margin:0 auto; line-height:1.65; }
+  .fb-btn{
+    display:inline-flex; align-items:center; gap:12px;
+    margin-top:34px; padding:16px 30px;
+    background: var(--panel-2); border:1px solid var(--blue-deep);
+    border-radius:3px; text-decoration:none;
+    font-weight:600; font-size:15px; color:var(--white);
+    transition: background .2s ease, transform .2s ease;
+  }
+  .fb-btn:hover{ background: var(--blue-deep); transform: translateY(-2px); }
+  .fb-btn svg{ width:20px; height:20px; }
+  .contact-note{ margin-top:26px; font-size:13px; color:var(--muted-2); }
+
+  footer{ padding:40px 0 60px; text-align:center; border-top:1px solid var(--line); margin-top:10px; }
+  footer .fbottom{ color:var(--muted-2); font-size:12px; letter-spacing:0.04em; }
+</style>
+</head>
+<body>
+<div class="bg-field"></div>
+
+<nav class="topnav">
+  <div class="navrow">
+    <div class="brand" onclick="location.hash='#home'">
+      <img src="assets/crest.png" alt="Ryusei Tridents crest">
+      <span>RYUSEI TRIDENTS</span>
+    </div>
+    <div class="navlinks">
+      <a href="#home" data-route="home">Home</a>
+      <a href="#events" data-route="events">Events</a>
+      <a href="#contact" data-route="contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main class="page" id="page-home">
+  <header class="hero">
+    <svg class="hero-wing left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 20 L140 90 L110 90 L150 150 L100 120 L90 180 L70 120 L20 150 L60 90 L30 90 Z" fill="var(--blue)"/></svg>
+    <svg class="hero-wing right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 20 L140 90 L110 90 L150 150 L100 120 L90 180 L70 120 L20 150 L60 90 L30 90 Z" fill="var(--blue)"/></svg>
+    <div class="wrap">
+      <div class="hero-top">
+        <a class="region-link" href="https://www.facebook.com/ryuseitridents" target="_blank" rel="noopener">facebook.com/ryuseitridents</a>
+      </div>
+      <div class="hero-body">
+        <div class="hero-crest"><img src="assets/crest.png" alt="Ryusei Tridents crest"></div>
+        <div>
+          <h1 class="hero-title"><span class="sub">Dhaka, Bangladesh</span>Ryusei Tridents</h1>
+          <p class="hero-tagline">A Bangladeshi Valorant esports organization fielding a competitive roster and running the tournament operations behind some of the country's biggest university and school gaming events.</p>
+          <div class="hero-stats">
+            <div class="stat"><div class="num">#<span>93</span></div><div class="lbl">VLR Rank, South Asia</div></div>
+            <div class="stat"><div class="num"><span>13</span>+</div><div class="lbl">Events Managed</div></div>
+            <div class="stat"><div class="num"><span>6</span></div><div class="lbl">Core Leadership</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider" style="padding-top:0;">
+    <div class="ln"></div>
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 3L12 21L20 3M9 3L12 12L15 3" stroke="#4a7fd6" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <div class="ln"></div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="sec-num">01</span><h2 class="sec-title">What We Do</h2></div>
+      <p class="sec-lede">Ryusei Tridents operates on two fronts — competing at the highest level we can reach, and running the tournaments other people compete in.</p>
+      <div class="ops-grid">
+        <div class="op-card">
+          <div class="op-tag">Competitive</div>
+          <h3>Professional Valorant Roster</h3>
+          <p>Our Valorant team represents Bangladesh on the regional stage, currently ranked <b style="color:var(--white)">#93 in South Asia on VLR</b>. The team is built and coached in-house, with our caster-management crew supporting broadcast and player development alike.</p>
+        </div>
+        <div class="op-card">
+          <div class="op-tag">Operations</div>
+          <h3>Tournament &amp; Event Management</h3>
+          <p>Schools and universities across Bangladesh bring in our management team to plan and run their Valorant tournaments end-to-end — brackets, casting, server operations, and on-the-day event running. Thirteen and counting.</p>
+        </div>
+      </div>
+      <div class="rank-strip">
+        <div class="rn">#93<sup>VLR · South Asia</sup></div>
+        <div class="rd">Ryusei Tridents holds an active competitive Valorant ranking in the South Asia region on <b>VLR.gg</b>, placing the org among the region's tracked professional and semi-professional rosters.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="ln"></div>
+    <svg viewBox="0 0 24 24" fill="none"><path d="M4 3L12 21L20 3M9 3L12 12L15 3" stroke="#4a7fd6" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <div class="ln"></div>
+  </div>
+
+  <section id="leadership">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="sec-num">02</span><h2 class="sec-title">Leadership &amp; Management</h2></div>
+      <p class="sec-lede">The org chart, top to bottom. Scroll to meet the crew.</p>
+    </div>
+    <div class="wrap">
+      <div class="timeline" id="timeline">
+        <div class="lrow lead">
+          <div class="lcard">
+            <div class="photo"><img src="assets/koushik-sarker.jpg" alt="Koushik Sarker" width="480" height="600" loading="lazy" decoding="async"></div>
+            <div class="info">
+              <div class="p-name">Koushik Sarker</div>
+              <div class="p-alias">"BlazedHarpoon"</div>
+              <div class="p-role">Founder &amp; CEO · Caster</div>
+            </div>
+          </div>
+          <div class="node"><img src="assets/koushik-sarker.jpg" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
+          <div></div>
+        </div>
+        <div class="lrow">
+          <div></div>
+          <div class="node"><img src="assets/mahan-roy.jpg" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
+          <div class="lcard">
+            <div class="photo"><img src="assets/mahan-roy.jpg" alt="Mahan Roy" width="480" height="600" loading="lazy" decoding="async"></div>
+            <div class="info">
+              <div class="p-name">Mahan Roy</div>
+              <div class="p-alias">"Scrapper"</div>
+              <div class="p-role">Head of Management</div>
+            </div>
+          </div>
+        </div>
+        <div class="lrow">
+          <div class="lcard">
+            <div class="photo"><img src="assets/ashab-ud-dawla-khan.jpg" alt="Ashab Ud Dawla Khan" width="480" height="600" loading="lazy" decoding="async"></div>
+            <div class="info">
+              <div class="p-name">Ashab Ud Dawla Khan</div>
+              <div class="p-alias">"Anorak"</div>
+              <div class="p-role">Management</div>
+            </div>
+          </div>
+          <div class="node"><img src="assets/ashab-ud-dawla-khan.jpg" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
+          <div></div>
+        </div>
+        <div class="lrow">
+          <div></div>
+          <div class="node"><img src="assets/dewan-mashfi.jpg" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
+          <div class="lcard">
+            <div class="photo"><img src="assets/dewan-mashfi.jpg" alt="Dewan Mashfi" width="480" height="600" loading="lazy" decoding="async"></div>
+            <div class="info">
+              <div class="p-name">Dewan Mashfi</div>
+              <div class="p-alias">"ChocoSiUU"</div>
+              <div class="p-role">Management</div>
+            </div>
+          </div>
+        </div>
+        <div class="lrow">
+          <div class="lcard">
+            <div class="photo"><img src="assets/istiher-anwar-ishmam.jpg" alt="Istiher Anwar Ishmam" width="480" height="600" loading="lazy" decoding="async"></div>
+            <div class="info">
+              <div class="p-name">Istiher Anwar Ishmam</div>
+              <div class="p-alias">"ishmem"</div>
+              <div class="p-role">Management</div>
+            </div>
+          </div>
+          <div class="node"><img src="assets/istiher-anwar-ishmam.jpg" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
+          <div></div>
+        </div>
+        <div class="lrow">
+          <div></div>
+          <div class="node"><img src="assets/md-salman.jpg" alt="" width="480" height="600" loading="lazy" decoding="async"></div>
+          <div class="lcard">
+            <div class="photo"><img src="assets/md-salman.jpg" alt="MD Salman" width="480" height="600" loading="lazy" decoding="async"></div>
+            <div class="info">
+              <div class="p-name">MD Salman</div>
+              <div class="p-alias">"Unknowngamer"</div>
+              <div class="p-role">Management · Caster</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap"><div class="fbottom">RYUSEI TRIDENTS &nbsp;·&nbsp; DHAKA, BANGLADESH</div></div>
+  </footer>
+</main>
+
+<!-- ================= EVENTS ================= -->
+<main class="page" id="page-events">
+  <div class="page-head">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="sec-num">02</span><h2 class="sec-title">Events We've Managed</h2></div>
+      <p class="sec-lede">A track record of tournament operations run for university and school gaming communities across Bangladesh. Photos go up here as we add them.</p>
+    </div>
+  </div>
+  <section>
+    <div class="wrap">
+      <div class="events-list" id="events-list">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap"><div class="fbottom">RYUSEI TRIDENTS &nbsp;·&nbsp; EVENT HISTORY</div></div>
+  </footer>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<main class="page" id="page-contact">
+  <div class="contact-shell">
+    <div class="wrap">
+      <div class="fmark"><img src="assets/crest.png" alt="Ryusei Tridents crest"></div>
+      <h1>Bring us in to run your tournament.</h1>
+      <p>From bracket to broadcast, Ryusei Tridents' management team has run Valorant tournaments for universities and schools across Bangladesh — and we're always open to the next one.</p>
+      <a class="fb-btn" href="https://www.facebook.com/ryuseitridents" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06C2 17.06 5.66 21.2 10.44 21.95V14.9H7.9v-2.84h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.84h-2.34v7.05C18.34 21.2 22 17.06 22 12.06Z"/></svg>
+        facebook.com/ryuseitridents
+      </a>
+      <div class="contact-note">DMs open — reach out about tournament bookings, sponsorships, or roster inquiries.</div>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap"><div class="fbottom">RYUSEI TRIDENTS &nbsp;·&nbsp; CONTACT</div></div>
+  </footer>
+</main>
+
+<script>
+  // ---------- events data ----------
+  var EVENTS = [
+    { name:"UAP Techtron 2025", date:"1 May 2025", featured:true },
+    { name:"Intra IUB Gaming Fest 2024", date:null },
+    { name:"IUB NCEC '23", date:null },
+    { name:"IUB NCEC '24", date:null },
+    { name:"IUB Gaming Fest — Season 2", date:null },
+    { name:"IUB Gaming Fest — Season 3", date:null },
+    { name:"Valorant Grind League — Season 1", date:null },
+    { name:"YUNet Inter University Tournament", date:null },
+    { name:"JTC Showdown Cup — Season 1", date:null },
+    { name:"Hero Gaming", date:null },
+    { name:"IUT Techathon Nationals & Rover Summit", date:null },
+    { name:"HGC", date:null },
+    { name:"JTC Showdown Cup — Season 2", date:null }
+  ];
+
+  var photoIconSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1.5"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 16l-5.5-5.5a1.5 1.5 0 00-2.1 0L4 19"/></svg>';
+
+  function buildEvents(){
+    var list = document.getElementById('events-list');
+    var html = '';
+    EVENTS.forEach(function(ev){
+      html += '<div class="event-card' + (ev.featured ? ' featured' : '') + '">' +
+        '<div class="event-photo">' + photoIconSVG + '<span>Photo coming soon</span></div>' +
+        '<div class="event-body">' +
+          '<div class="en">' + ev.name + '</div>' +
+          '<div class="ed' + (ev.date ? '' : ' tba') + '">' + (ev.date ? ev.date : 'Date TBA') + '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    list.innerHTML = html;
+  }
+  buildEvents();
+
+  // ---------- routing ----------
+  var pages = { home: document.getElementById('page-home'), events: document.getElementById('page-events'), contact: document.getElementById('page-contact') };
+  var navlinks = document.querySelectorAll('.navlinks a');
+
+  function route(){
+    var hash = (location.hash || '#home').replace('#','');
+    if(!pages[hash]) hash = 'home';
+    Object.keys(pages).forEach(function(k){ pages[k].classList.toggle('active', k === hash); });
+    navlinks.forEach(function(a){ a.classList.toggle('active', a.dataset.route === hash); });
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+    initReveals();
+  }
+  window.addEventListener('hashchange', route);
+  route();
+
+  // ---------- scroll reveal ----------
+  var io = null;
+  function initReveals(){
+    if(io) io.disconnect();
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold:0.18, rootMargin:'0px 0px -60px 0px' });
+
+    document.querySelectorAll('.lrow, .event-card').forEach(function(el){
+      io.observe(el);
+    });
+  }
+</script>
+
+</body>
+</html>
